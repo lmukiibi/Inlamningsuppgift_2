@@ -6,7 +6,19 @@ namespace Inlamningsuppgift_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello! \nPleaase enter your code:");
+            string code = Console.ReadLine().ToLower();
+
+            switch (code)
+            {
+                case "gotebuggarna":
+                    Gotebuggarna gb = new Gotebuggarna();
+                    gb.Run();
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 }

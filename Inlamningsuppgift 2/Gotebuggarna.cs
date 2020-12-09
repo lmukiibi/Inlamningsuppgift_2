@@ -18,26 +18,11 @@ namespace Inlamningsuppgift_2
         private void GetDataFromLink()
         {
             string urlAddress = "https://docs.google.com/spreadsheets/d/1OBbo8KQvtJaDHkG7gVHKCZULfzQ3DjygSfUjSB5WDf8/edit?usp=sharing";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
-            request.Method = "GET";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.UseDefaultCredentials = true;
-            request.Accept = "/";
-            request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                Stream receiveStream = response.GetResponseStream();
-                StreamReader readStream = null;
-                if (response.CharacterSet == null)
-                    readStream = new StreamReader(receiveStream);
-                else
-                    readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
-                string data = readStream.ReadToEnd();
-                response.Close();
-                readStream.Close();
-                Console.WriteLine(data);
-            }
+            
+var gsh = new GoogleSheetsHelper.GoogleSheetsHelper("Google Sheets-e1ceb012eb0c.json", "18p6CMRLbN6L4IViUIbAxce_3ij6HGlPYXkKUPR5ZkGo");
+            var gsp = new GoogleSheetParameters() { RangeColumnStart = 1, RangeRowStart = 1, RangeColumnEnd = 3, RangeRowEnd = 100, FirstRowIsHeaders = true, SheetName = "sheet1" };
+            var rowValues = gsh.GetDataFromSheet(gsp);
+        }
         }
 
         public void Run()

@@ -4,20 +4,23 @@ using System.Text;
 
 namespace Inlamningsuppgift_2
 {
-    class Init_Class
+    static class Init_Class
     {
-        List<Student> students;
-        public Init_Class()
+        private static List<Student> students;
+        public static List<Student> InitStudents()
         {
             students = new List<Student>();
 
-            
+            AddStudent();
+
+            return students;
         }
 
-        private void AddStudent()
+        private static List<Student> AddStudent()
         {
             students.Add(new Student("Leroy", 32, "22 oct", "pizza", "We the best music", "Matrix",
                 "choklad", "kaviar", "våg", "flyga", "dynamisk"));
+            /*
             students.Add(new Student("Andrei K", 26, "12 jan", "carbonara", "Two steps from hell", "Lord of the rings",
                 "resa", "oliver", "stenbock", "instant olive detection", "problemlösning"));
             students.Add(new Student("Jesper P", 28, "29 maj", "lammracks", "Lars Winnerbäck", "Catch me if you can",
@@ -34,6 +37,9 @@ namespace Inlamningsuppgift_2
                 "snö", "slask", "fisk", "räkna med fingrarna", "roligt"));
             students.Add(new Student("Yulrok", 38, "23 april", "musli", "Morcheba", "The green book",
                 "ost", "slöseri", "oxe", "tankeövverföring", "biljett till digital nomad - livet"));
+            */
+
+            return students;
         }
     }
 }

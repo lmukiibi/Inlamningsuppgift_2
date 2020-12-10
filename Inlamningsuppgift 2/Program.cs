@@ -11,11 +11,16 @@ namespace Inlamningsuppgift_2
 
             switch (code)
             {
-                case "gotebuggarna":
+                case "":
+                //case "gotebuggarna":
                     Gotebuggarna gb = new Gotebuggarna();
+                    Console.Clear();
                     gb.Run();
+                    Console.WriteLine("Goodbye!");
                     break;
                 default:
+                    Console.WriteLine("Input not valid. Terminating program.");
+                    Console.ReadKey();
                     break;
             }
 

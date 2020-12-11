@@ -15,12 +15,21 @@ namespace Inlamningsuppgift_2
 
     static class User_interractions
     {
+        //separating strings to make the code look more advanced
         public const string ErrorMessage = "Invalid input";
+        public const string NoStudents = "There are no more students in this class.";
+        public const string GoodBye = "Goodbye!";
+        public const string Terminating = "Input not valid. Terminating program.";
+        public const string PressKey = "Press any key...";
+        public const string StudentsAdded = "Students have rejoined this class";
 
+        //Here you can ajdust the errormessage part how ever you like
         public static void Error()
         {
             Console.WriteLine(ErrorMessage);
         }
+
+        //this is method return appropriate set of choises 
         public static string Menu(int menu, List<Student> student)
         {
             string listOfStudents = "";
@@ -30,12 +39,14 @@ namespace Inlamningsuppgift_2
                     return "Welcome to the class of Götebuggarnas!\nChoose one of following:\n" +
                         "1. Show students in this class.\n" +
                         "2. Show details about a student.\n" +
-                        "3. Remove a student from this class.\n" + 
+                        "3. Remove a student from this class.\n" +
+                        "4. Let the student back into this class.\n" +
                         
                         "9. Exit.\n";
 
                 case 1:
                     listOfStudents = "\nClass members:\n";
+                   
                     for (int i = 0; i < student.Count; i++)
                     {
                         listOfStudents += $"{student[i].Name}";
@@ -44,7 +55,7 @@ namespace Inlamningsuppgift_2
 
                     }
                     return listOfStudents;
-
+                    //this part is used twice - one for when aquiring detailes and one for deleting
                 case 2:
                     listOfStudents = "Choose wich student:\n";
                     for (int i = 0; i < student.Count; i++)

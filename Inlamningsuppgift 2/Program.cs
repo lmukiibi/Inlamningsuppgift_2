@@ -8,18 +8,23 @@ namespace Inlamningsuppgift_2
         {
             Console.WriteLine("Hello! \nPleaase enter your code:");
             string code = Console.ReadLine().ToLower();
+            Gotebuggarna gb = new Gotebuggarna();
 
             switch (code)
             {
-                case "":
-                //case "gotebuggarna":
-                    Gotebuggarna gb = new Gotebuggarna();
+                //case "":
+                case "gotebuggarna":
                     Console.Clear();
-                    gb.Run();
-                    Console.WriteLine("Goodbye!");
+                    gb.Run(false);
+                    break;
+
+                    //This populates the class with only one student so that you can adjust the logics and output of removing the student
+                case "leemode":
+                    Console.Clear();
+                    gb.Run(true);
                     break;
                 default:
-                    Console.WriteLine("Input not valid. Terminating program.");
+                    Console.WriteLine(User_interractions.Terminating);
                     Console.ReadKey();
                     break;
             }
